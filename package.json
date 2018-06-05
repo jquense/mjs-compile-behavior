@@ -1,0 +1,25 @@
+{
+  "name": "test-app",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "license": "MIT",
+  "scripts": {
+    "build:esm": "cp ./src/index.js ./lib/index.mjs",
+    "build:cjs": "babel src -d lib --presets @babel/env",
+    "build": "npm run build:esm && npm run build:cjs"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-lifecycles-compat": "^3.0.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "webpack": "^4.10.2",
+    "webpack-atoms": "^7.0.0",
+    "webpack-cli": "^3.0.1",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
