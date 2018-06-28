@@ -1,3 +1,8 @@
-import ReactLifeCycleCompat from 'react-lifecycle-compat'
+const { FOO, BAR } = require('./env')
 
-export default ReactLifeCycleCompat.polyfill(() => {})
+document.body.innerHTML = `
+  <ul>
+    <li>FOO: ${FOO}</li>
+    <li>BAR: ${BAR}</li>
+  </ul>
+`

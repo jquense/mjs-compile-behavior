@@ -1,13 +1,21 @@
 const { rules, plugins } = require('webpack-atoms')
 
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+
 module.exports = {
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     path: `${__dirname}/build`,
-    filename: '[name].js]',
+    filename: 'app.js',
   },
-  module: {
-    rules: [rules.js()],
-  },
-  plugins: [plugins.html()],
+  plugins: [
+    plugins.html(),
+    new AddAssetHtmlPlugin({
+      filepath: `${__dirname}/build/env.js`,
+      includeSourcemap: false,
+    }),
+    plugins.dllReference({
+      manifest: `${__dirname}/build/env-manifest.json`,
+    }),
+  ],
 }
